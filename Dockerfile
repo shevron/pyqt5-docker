@@ -16,7 +16,7 @@ COPY install-pyqt5.sh /tmp/
 RUN /tmp/install-pyqt5.sh
 
 # Verify installation
-RUN python -e 'from PyQt5 import QtCore; print "Successfully installed PyQt v. {}".format(QtCore.PYQT_VERSION);'
+RUN python -c 'from PyQt5 import QtCore; print "Successfully installed PyQt v. {}".format(QtCore.PYQT_VERSION_STR);'
 
 # Clean up
 RUN rm /tmp/install-pyqt5.sh
