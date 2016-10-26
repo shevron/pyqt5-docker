@@ -1,4 +1,4 @@
-Python 2.7 + PyQt5 Base Docker Container
+Python 3.5 + PyQt5 Base Docker Container
 ========================================
 
 NOTE: This container is a distribution of the GPL version of PyQt5 and hence
