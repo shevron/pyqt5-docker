@@ -1,6 +1,6 @@
-# Dockerfile for Python 2.7 + PyQt5
+# Dockerfile for Python 3.5 + PyQt5
 
-FROM python:2.7
+FROM python:3.5
 MAINTAINER shahar.evron@gmail.com
 
 # Install PyQt5 build dependencies
