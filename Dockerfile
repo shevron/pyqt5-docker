@@ -1,7 +1,7 @@
-# Dockerfile for Python 2.7 + PyQt5
+# Dockerfile for Python 3.6 + PyQt5
 
-FROM python:2.7
-MAINTAINER shahar.evron@gmail.com
+FROM python:3.6
+LABEL maintainer=shahar.evron@gmail.com
 
 # Install PyQt5 build dependencies
 RUN apt-get update -y && apt-get install -y \
@@ -9,14 +9,10 @@ RUN apt-get update -y && apt-get install -y \
   build-essential \
   qt5-default \
   qt5-qmake \
-  libqt5webkit5-dev
+  libqt5webkit5-dev \
+  pyqt5-dev-tools
 
-# Install SIP
-COPY install-pyqt5.sh /tmp/
-RUN /tmp/install-pyqt5.sh
+RUN pip install PyQt5
 
 # Verify installation
-RUN python -c 'from PyQt5 import QtCore; print "Successfully installed PyQt v. {}".format(QtCore.PYQT_VERSION_STR);'
-
-# Clean up
-RUN rm /tmp/install-pyqt5.sh
+RUN python -c 'from PyQt5 import QtCore; print("Successfully installed PyQt v. {}".format(QtCore.PYQT_VERSION_STR))'
